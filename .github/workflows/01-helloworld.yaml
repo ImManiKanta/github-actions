@@ -1,0 +1,10 @@
+name: hello world
+on: [push]
+
+jobs:
+  #job name
+  hello:
+    runs-on: ubuntu-latest #github hosted runner
+    steps:
+      - name: Greeting
+        run: echo "Hello world" #command to execute
