@@ -44,10 +44,10 @@ jobs:
 
       - name: github env
         run: |
-          echo "image-name=catalogue" >> $GITHUB_ENV
+          echo "image_name=catalogue" >> $GITHUB_ENV
           echo "version=1.0.0" >> $GITHUB_ENV
 
       - name: print github env
         run: |
-          echo "image name: ${image-name}"
+          echo "image name: $image_name"
           echo "version: $version"
