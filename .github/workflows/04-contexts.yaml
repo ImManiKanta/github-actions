@@ -50,4 +50,4 @@ jobs:
       - name: print github env
         run: |
           echo "image-name: $image-name"
-          echo "version: $version
+          echo "version: $version"
