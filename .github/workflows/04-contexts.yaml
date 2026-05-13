@@ -1,6 +1,7 @@
 name: contexts demo
 on: [push]
 
+#we can access these env vars in entire workflow
 env:
   project: "roboshop"
   component: 'catalogue'
@@ -20,4 +21,9 @@ jobs:
           echo "Project : $project"
           echo "Component : $component"
           echo "Environment : $environment"
+
+      - name: Print secrets
+        run: |
+          echo "DB USER NAME: ${{ secrets.DB_USER }}"
+          echo "DB PASSWORD: ${{ secrets.DB_PASSWORD }}"
          
