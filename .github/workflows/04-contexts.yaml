@@ -25,5 +25,5 @@ jobs:
       - name: Print secrets
         run: |
           echo "DB USER NAME: ${{ secrets.DB_USER }}"
-          echo "DB PASSWORD: ${{ secrets.DB_PASSWOR }}"
+          echo "DB PASSWORD: ${{ secrets.DB_PASSWORD }}"
          
