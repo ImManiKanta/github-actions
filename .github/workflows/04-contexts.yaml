@@ -51,3 +51,11 @@ jobs:
         run: |
           echo "image name: $image_name"
           echo "version: $version"
+  deploy:
+    needs: github-context # means depends on above job
+    runs-on: ubuntu-latest # Github hosted runners
+    steps:
+      - name: print github env in another job
+        run: |
+          echo "Image Name: ${{ needs.github-context.outputs.image-name }}"
+          echo "Image Version: ${{ needs.github-context.outputs.image-version }}"
