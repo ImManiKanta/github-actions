@@ -10,6 +10,9 @@ env:
 jobs:
   github-context:
     runs-on: ubuntu-latest
+    outputs:
+      image-version: ${{steps.tag.outputs.version}}
+      image-name: ${{steps.tag.outputs.image-name}}
     steps:
       - name: print github info
         run: |
@@ -55,7 +58,7 @@ jobs:
     needs: github-context # means depends on above job
     runs-on: ubuntu-latest # Github hosted runners
     steps:
-      - name: print github env in another job
+      - name: print github env fron another job
         run: |
           echo "Image Name: ${{ needs.github-context.outputs.image-name }}"
           echo "Image Version: ${{ needs.github-context.outputs.image-version }}"
