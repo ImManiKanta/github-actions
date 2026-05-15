@@ -1,0 +1,15 @@
+name: conditions
+on: [push]
+
+jobs:
+  conditions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: main branch
+        if: github.ref_name == "main"
+        run: echo "I m from main branch" 
+      
+      - name: feature branch
+        if: github.ref_name == "feature-*"
+        run: echo "I m from feature branch" 
+
