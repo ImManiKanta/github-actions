@@ -54,6 +54,7 @@ jobs:
         run: |
           echo "image name: $image_name"
           echo "version: $version"
+
   deploy:
     needs: github-context # means depends on above job
     runs-on: ubuntu-latest # Github hosted runners
@@ -62,3 +63,18 @@ jobs:
         run: |
           echo "Image Name: ${{ needs.github-context.outputs.image-name }}"
           echo "Image Version: ${{ needs.github-context.outputs.image-version }}"
+
+  #If there is no dependency then jobs will run parallely
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sonar scan 
+        run: echo "sonar scan step"
+
+        #Job context, status of job it will show
+      - name: print job Contexts
+        run: echo "${{ toJson(job) }}"
+
+        #it will show info about runner like workspace, os, environmet, arch
+      - name: print runner Contexts
+        run: echo "${{ toJson(runner) }}"
